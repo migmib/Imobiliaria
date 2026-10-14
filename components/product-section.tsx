@@ -7,22 +7,22 @@ import { ScrollBlurText } from "@/components/scroll-blur-text"
 
 const products = [
   {
-    name: "Equilibrium",
-    description: "Rebalancing the gut microbiome for optimal digestion and daily well-being.",
+    name: "Casa com piscina",
+    description: "4 quartos, 3 banheiros, 320 m². Jardim amplo e área gourmet. Jardins, São Paulo.",
     image: "/images/product-equilibrium.png",
-    tag: "Digestive",
+    tag: "Venda",
   },
   {
-    name: "Serenity",
-    description: "Supporting the gut-brain axis for better stress management and restorative sleep.",
+    name: "Apartamento moderno",
+    description: "2 quartos, 2 banheiros, 85 m². Varanda e vaga de garagem. Pinheiros, São Paulo.",
     image: "/images/product-serenity.png",
-    tag: "Stress & Sleep",
+    tag: "Aluguel",
   },
   {
-    name: "Vitality",
-    description: "Strengthening natural defenses and optimizing daily energy.",
+    name: "Terreno em condomínio",
+    description: "600 m² planos, em condomínio fechado com segurança 24h. Cotia, São Paulo.",
     image: "/images/product-vitality.png",
-    tag: "Immunity",
+    tag: "Venda",
   },
 ]
 
@@ -48,19 +48,19 @@ export function ProductSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="produits" className="py-24 lg:py-32 bg-muted/30">
+    <section ref={sectionRef} id="imoveis" className="py-24 lg:py-32 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
           <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-secondary font-medium mb-4">
-            Our Solutions
+            Imóveis em destaque
           </p>
           <ScrollBlurText
-            text="Formulas designed for you"
+            text="Encontre o seu próximo lar"
             className="font-serif text-3xl text-foreground text-balance mb-6 md:text-7xl font-light"
           />
           <p className="reveal opacity-0 animation-delay-400 text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Each product is the result of extensive research, combining scientific expertise with respect for nature.
+            Uma seleção de imóveis escolhidos com cuidado, para você comprar ou alugar com segurança.
           </p>
         </div>
 
@@ -91,7 +91,7 @@ export function ProductSection() {
                     variant="ghost"
                     className="text-primary hover:text-primary hover:bg-primary/10 p-0 h-auto group/btn"
                   >
-                    Discover
+                    Ver detalhes
                     <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </Button>
                 </div>

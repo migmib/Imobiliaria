@@ -15,9 +15,9 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: "Biometic — Science du Microbiome",
+  title: "Imobiliaria — Encontre o imóvel dos seus sonhos",
   description:
-    "Découvrez une approche scientifique et naturelle pour votre bien-être. Biometic fusionne science rigoureuse et nature vivante.",
+    "Casas, apartamentos e terrenos para comprar ou alugar. Encontre o imóvel ideal com a Imobiliaria.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -44,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
+    <html lang="pt-BR">
       <body className={`${dmSans.variable} ${fraunces.variable} font-sans antialiased`}>
         {children}
         <Analytics />

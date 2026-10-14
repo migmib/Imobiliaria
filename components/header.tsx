@@ -15,34 +15,34 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             
-            <span className="font-serif text-foreground text-2xl font-normal">Biometic</span>
+            <span className="font-serif text-foreground text-2xl font-normal">Imobiliaria</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-10">
-            <Link href="#produits" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Products
+            <Link href="#imoveis" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Imóveis
             </Link>
-            <Link href="#science" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Science
+            <Link href="#diferenciais" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Diferenciais
             </Link>
-            <Link href="#temoignages" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Testimonials
+            <Link href="#depoimentos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Depoimentos
             </Link>
-            <Link href="#mission" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Our Mission
+            <Link href="#sobre" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Sobre nós
             </Link>
           </div>
 
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6">
-              Discover
+              Fale conosco
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button className="md:hidden p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Abrir menu">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -52,35 +52,35 @@ export function Header() {
           <div className="md:hidden py-6 px-6 lg:px-8 border-t border-border/50">
             <div className="flex flex-col gap-4">
               <Link
-                href="#produits"
+                href="#imoveis"
                 className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Products
+                Imóveis
               </Link>
               <Link
-                href="#science"
+                href="#diferenciais"
                 className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Science
+                Diferenciais
               </Link>
               <Link
-                href="#temoignages"
+                href="#depoimentos"
                 className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Testimonials
+                Depoimentos
               </Link>
               <Link
-                href="#mission"
+                href="#sobre"
                 className="text-lg text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                Our Mission
+                Sobre nós
               </Link>
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full w-full mt-4">
-                Discover
+                Fale conosco
               </Button>
             </div>
           </div>

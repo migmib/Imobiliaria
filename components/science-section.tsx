@@ -5,28 +5,28 @@ import { FlaskConical, Leaf, Shield, Users } from "lucide-react"
 import { ScrollBlurText } from "./scroll-blur-text"
 
 const stats = [
-  { icon: FlaskConical, value: "15+", label: "Years of research" },
-  { icon: Leaf, value: "100%", label: "Natural ingredients" },
-  { icon: Shield, value: "47", label: "Clinical studies" },
-  { icon: Users, value: "250K+", label: "People supported" },
+  { icon: FlaskConical, value: "15+", label: "Anos de mercado" },
+  { icon: Leaf, value: "100%", label: "Documentação verificada" },
+  { icon: Shield, value: "47", label: "Bairros atendidos" },
+  { icon: Users, value: "250K+", label: "Clientes atendidos" },
 ]
 
 const principles = [
   {
     number: "01",
-    title: "Fundamental research",
+    title: "Conhecimento do mercado",
     description:
-      "Our formulas are developed in collaboration with renowned research laboratories, ensuring a solid scientific foundation.",
+      "Analisamos preços, bairros e tendências para indicar o imóvel certo pelo valor justo.",
   },
   {
     number: "02",
-    title: "Rigorous selection",
-    description: "Each ingredient is carefully selected for its purity, effectiveness, and sustainable origin.",
+    title: "Seleção criteriosa",
+    description: "Cada imóvel anunciado é visitado e tem a documentação conferida antes de ir para o site.",
   },
   {
     number: "03",
-    title: "Clinical validation",
-    description: "Our products undergo clinical studies to demonstrate their effectiveness and safety.",
+    title: "Acompanhamento completo",
+    description: "Da primeira visita à entrega das chaves, você conta com apoio em cada etapa.",
   },
 ]
 
@@ -87,20 +87,19 @@ export function ScienceSection() {
   }
 
   return (
-    <section ref={sectionRef} id="science" className="py-24 lg:py-32 bg-primary text-primary-foreground">
+    <section ref={sectionRef} id="diferenciais" className="py-24 lg:py-32 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
           <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-primary-foreground/70 font-medium mb-4">
-            Our Approach
+            Nossos diferenciais
           </p>
           <ScrollBlurText
-            text="Science in service of life"
+            text="Experiência a serviço do seu sonho"
             className="font-serif text-3xl md:text-4xl text-primary-foreground text-balance mb-6 lg:text-7xl font-light"
           />
           <p className="reveal opacity-0 animation-delay-400 text-lg text-primary-foreground/80 max-w-2xl mx-auto leading-relaxed">
-            We believe in caring science that respects natural balances while providing concrete and effective
-            solutions.
+            Acreditamos em um atendimento transparente, que une conhecimento de mercado e cuidado com cada cliente.
           </p>
         </div>
 

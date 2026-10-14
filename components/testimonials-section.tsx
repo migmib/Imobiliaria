@@ -6,35 +6,35 @@ import { ScrollBlurText } from "./scroll-blur-text"
 const testimonials = [
   {
     quote:
-      "After years of digestive problems, Equilibrium has truly changed my daily life. I finally feel light and full of energy.",
-    author: "Marie L.",
-    role: "User for 8 months",
+      "Encontrei meu apartamento em duas semanas. O atendimento foi atencioso do começo ao fim.",
+    author: "Mariana L.",
+    role: "Comprou um apartamento",
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
     quote:
-      "Biometic's scientific approach immediately appealed to me. The results are there: better sleep, less stress, more mental clarity.",
-    author: "Thomas D.",
-    role: "User for 1 year",
+      "Processo transparente e sem burocracia. Recomendo a Imobiliaria para quem quer segurança no aluguel.",
+    author: "Thiago D.",
+    role: "Alugou uma casa",
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
     quote:
-      "As a doctor, I appreciate the scientific rigor behind each formula. I recommend Biometic to my patients with complete confidence.",
-    author: "Dr. Sophie M.",
-    role: "General practitioner",
+      "Como investidora, valorizo a análise de mercado. Todas as indicações foram certeiras.",
+    author: "Sofia M.",
+    role: "Investidora",
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
-    quote: "A true revolution for my gut health. Biometic probiotics have transformed my daily well-being.",
+    quote: "Vendi minha casa rápido e pelo preço que eu esperava. Excelente equipe.",
     author: "Lucas P.",
-    role: "User for 6 months",
+    role: "Vendeu uma casa",
     avatar: "/placeholder.svg?height=80&width=80",
   },
   {
-    quote: "Biometic helped me regain restorative sleep. I finally wake up rested and full of energy.",
-    author: "Claire B.",
-    role: "User for 10 months",
+    quote: "Fui muito bem orientada na compra do meu primeiro imóvel. Me senti segura em todas as etapas.",
+    author: "Clara B.",
+    role: "Primeiro imóvel",
     avatar: "/placeholder.svg?height=80&width=80",
   },
 ]
@@ -102,15 +102,15 @@ export function TestimonialsSection() {
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
-    <section ref={sectionRef} id="temoignages" className="py-24 bg-background overflow-hidden lg:py-32 lg:pb-0">
+    <section ref={sectionRef} id="depoimentos" className="py-24 bg-background overflow-hidden lg:py-32 lg:pb-0">
       {/* Section Header */}
       <div className="w-full">
         <div className="text-center mb-16 lg:mb-20 px-6">
           <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-secondary font-medium mb-4">
-            Testimonials
+            Depoimentos
           </p>
           <ScrollBlurText
-            text="They found their balance"
+            text="Quem encontrou o seu lugar"
             className="font-serif text-3xl md:text-4xl text-foreground text-balance lg:text-7xl font-light"
           />
         </div>

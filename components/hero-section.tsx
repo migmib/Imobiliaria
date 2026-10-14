@@ -62,7 +62,7 @@ export function HeroSection() {
       >
         <img
           src="/images/hero-biometic.png"
-          alt="Biometic in a natural environment"
+          alt="Casa moderna com jardim"
           className="w-full h-full object-cover animate-zoom-in"
         />
         {/* Subtle dark overlay for text readability */}
@@ -74,24 +74,24 @@ export function HeroSection() {
         <div className="max-w-2xl">
           {/* Text content */}
           <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-background font-medium mb-6">
-            Microbiome Science
+            Compra e aluguel de imóveis
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] text-background text-balance mb-8">
-            <AnimatedText text="Reveal your" delay={0.2} />
+            <AnimatedText text="Encontre o lugar" delay={0.2} />
             <br />
             <span className="text-accent">
-              <AnimatedText text="natural balance" delay={0.6} />
+              <AnimatedText text="perfeito para você" delay={0.6} />
             </span>
           </h1>
           <p className="reveal opacity-0 animation-delay-400 text-lg text-background/90 leading-relaxed mb-10 md:text-base mr-0 pr-0">
-            A scientific and caring approach to restore your microbiome harmony. Discover research-based solutions.
+            Casas, apartamentos e terrenos selecionados com atendimento próximo do início ao fim da sua negociação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 text-base group"
             >
-              Start your journey
+              Ver imóveis
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button
@@ -99,7 +99,7 @@ export function HeroSection() {
               variant="outline"
               className="rounded-full px-8 py-6 text-base border-background/30 hover:bg-background/10 text-background bg-transparent backdrop-blur-sm"
             >
-              Learn more
+              Fale conosco
             </Button>
           </div>
         </div>

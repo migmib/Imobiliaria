@@ -26,11 +26,11 @@ export function MissionSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="mission" className="py-24 lg:py-32 px-6">
+    <section ref={sectionRef} id="sobre" className="py-24 lg:py-32 px-6">
       <div className="relative max-w-7xl mx-auto rounded-[48px] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img src="/images/mission-background.png" alt="Nature background" className="w-full h-full object-cover" />
+          <img src="/images/mission-background.png" alt="Paisagem ao entardecer" className="w-full h-full object-cover" />
           {/* Dark overlay for text readability */}
           <div className="absolute inset-0 bg-foreground/50" />
 
@@ -48,21 +48,20 @@ export function MissionSection() {
             {/* Content */}
             <div className="order-1 lg:order-2">
               <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-accent font-medium mb-4">
-                Our Vision
+                Sobre nós
               </p>
               <h2 className="reveal opacity-0 animation-delay-200 font-serif text-3xl md:text-4xl lg:text-5xl font-medium text-background text-balance mb-8">
-                Reconnecting humans with their deep nature
+                Mais do que imóveis, realizamos mudanças de vida
               </h2>
               <div className="reveal opacity-0 animation-delay-400 space-y-6 text-background/90 leading-relaxed">
                 <p>
-                  At Biometic, we believe that true well-being comes from the harmony between modern science and
-                  ancestral wisdom. Our mission is to make accessible a holistic approach to health, based on the latest
-                  discoveries in microbiome research.
+                  Na Imobiliaria, acreditamos que encontrar o lugar certo vai além de metros quadrados: é sobre
+                  qualidade de vida, segurança e novos começos. Nossa missão é tornar a compra, a venda e o aluguel
+                  mais simples e transparentes.
                 </p>
                 <p>
-                  We are committed to developing solutions that respect natural balances, while providing tangible and
-                  lasting results. Each formula is the result of close collaboration between researchers, practitioners,
-                  and concerned individuals.
+                  Trabalhamos com corretores experientes, tecnologia e atendimento próximo para que cada cliente
+                  tome a melhor decisão, com tranquilidade e confiança.
                 </p>
               </div>
               <div className="reveal opacity-0 animation-delay-600 mt-10">
@@ -70,7 +69,7 @@ export function MissionSection() {
                   size="lg"
                   className="bg-background text-foreground hover:bg-background/90 rounded-full px-8 group"
                 >
-                  Discover our story
+                  Conheça nossa história
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

@@ -2,23 +2,23 @@ import Link from "next/link"
 import { Mail, MapPin, Phone } from "lucide-react"
 
 const footerLinks = {
-  produits: [
-    { label: "Equilibrium", href: "#" },
-    { label: "Serenity", href: "#" },
-    { label: "Vitality", href: "#" },
-    { label: "All products", href: "#" },
+  imoveis: [
+    { label: "Casas", href: "#imoveis" },
+    { label: "Apartamentos", href: "#imoveis" },
+    { label: "Terrenos", href: "#imoveis" },
+    { label: "Todos os imóveis", href: "#imoveis" },
   ],
-  entreprise: [
-    { label: "Our story", href: "#" },
-    { label: "Science", href: "#science" },
-    { label: "Team", href: "#" },
-    { label: "Careers", href: "#" },
+  empresa: [
+    { label: "Sobre nós", href: "#sobre" },
+    { label: "Diferenciais", href: "#diferenciais" },
+    { label: "Depoimentos", href: "#depoimentos" },
+    { label: "Trabalhe conosco", href: "#" },
   ],
-  ressources: [
+  ajuda: [
     { label: "Blog", href: "#" },
-    { label: "FAQ", href: "#" },
-    { label: "Contact", href: "#" },
-    { label: "Press", href: "#" },
+    { label: "Perguntas frequentes", href: "#" },
+    { label: "Contato", href: "#" },
+    { label: "Financiamento", href: "#" },
   ],
 }
 
@@ -31,34 +31,34 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6">
               <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center">
-                <span className="text-foreground font-serif text-sm font-medium">B</span>
+                <span className="text-foreground font-serif text-sm font-medium">I</span>
               </div>
-              <span className="font-serif text-xl font-medium text-background">Biometic</span>
+              <span className="font-serif text-xl font-medium text-background">Imobiliaria</span>
             </Link>
             <p className="text-background/70 leading-relaxed mb-6 max-w-sm">
-              Microbiome science for your well-being. Natural and scientifically validated solutions.
+              Casas, apartamentos e terrenos para comprar ou alugar, com atendimento de confiança.
             </p>
             <div className="space-y-3 text-sm text-background/70">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4" />
-                <span>contact@biometic.com</span>
+                <span>contato@imobiliaria.com.br</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4" />
-                <span>+1 234 567 8900</span>
+                <span>(11) 90000-0000</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4" />
-                <span>New York, USA</span>
+                <span>São Paulo, SP</span>
               </div>
             </div>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-medium text-background mb-4">Products</h4>
+            <h4 className="font-medium text-background mb-4">Imóveis</h4>
             <ul className="space-y-3">
-              {footerLinks.produits.map((link) => (
+              {footerLinks.imoveis.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
                     {link.label}
@@ -69,9 +69,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-medium text-background mb-4">Company</h4>
+            <h4 className="font-medium text-background mb-4">Empresa</h4>
             <ul className="space-y-3">
-              {footerLinks.entreprise.map((link) => (
+              {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
                     {link.label}
@@ -82,9 +82,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-medium text-background mb-4">Resources</h4>
+            <h4 className="font-medium text-background mb-4">Ajuda</h4>
             <ul className="space-y-3">
-              {footerLinks.ressources.map((link) => (
+              {footerLinks.ajuda.map((link) => (
                 <li key={link.label}>
                   <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
                     {link.label}
@@ -97,16 +97,16 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-background/50">© 2025 Biometic. All rights reserved.</p>
+          <p className="text-sm text-background/50">© 2026 Imobiliaria. Todos os direitos reservados.</p>
           <div className="flex gap-6 text-sm text-background/50">
             <Link href="#" className="hover:text-background transition-colors">
-              Legal notice
+              Aviso legal
             </Link>
             <Link href="#" className="hover:text-background transition-colors">
-              Privacy policy
+              Política de privacidade
             </Link>
             <Link href="#" className="hover:text-background transition-colors">
-              Terms of sale
+              Termos de uso
             </Link>
           </div>
         </div>
