@@ -1,8 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { PropertySearchForm } from "@/components/property-search-form"
 import { AnimatedText } from "@/components/animated-text"
 
 export function HeroSection() {
@@ -86,22 +85,10 @@ export function HeroSection() {
           <p className="reveal opacity-0 animation-delay-400 text-lg text-background/90 leading-relaxed mb-10 md:text-base mr-0 pr-0">
             Casas, apartamentos e terrenos selecionados com atendimento próximo do início ao fim da sua negociação.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 text-base group"
-            >
-              Ver imóveis
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="rounded-full px-8 py-6 text-base border-background/30 hover:bg-background/10 text-background bg-transparent backdrop-blur-sm"
-            >
-              Fale conosco
-            </Button>
-          </div>
+        </div>
+
+        <div className="reveal opacity-0 animation-delay-600 mt-12 max-w-5xl">
+          <PropertySearchForm variant="hero" />
         </div>
 
         {/* Floating card - bottom left */}

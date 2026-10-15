@@ -1,30 +1,46 @@
 import Link from "next/link"
 import { Mail, MapPin, Phone } from "lucide-react"
+import { SectionLink } from "@/components/section-link"
+import { site } from "@/lib/site"
 
 const footerLinks = {
   imoveis: [
-    { label: "Casas", href: "#imoveis" },
-    { label: "Apartamentos", href: "#imoveis" },
-    { label: "Terrenos", href: "#imoveis" },
-    { label: "Todos os imóveis", href: "#imoveis" },
+    { label: "Casas", href: "/imoveis?type=CASA" },
+    { label: "Apartamentos", href: "/imoveis?type=APARTAMENTO" },
+    { label: "Terrenos", href: "/imoveis?type=TERRENO" },
+    { label: "Todos os imóveis", href: "/imoveis" },
   ],
   empresa: [
-    { label: "Sobre nós", href: "#sobre" },
-    { label: "Diferenciais", href: "#diferenciais" },
-    { label: "Depoimentos", href: "#depoimentos" },
+    { label: "Quem somos", href: "/#quem-somos" },
+    { label: "Corretores", href: "/#corretores" },
+    { label: "Depoimentos", href: "/#depoimentos" },
     { label: "Trabalhe conosco", href: "#" },
   ],
   ajuda: [
-    { label: "Blog", href: "#" },
-    { label: "Perguntas frequentes", href: "#" },
-    { label: "Contato", href: "#" },
-    { label: "Financiamento", href: "#" },
+    { label: "Fale conosco", href: "/#contato" },
+    { label: "Crédito imobiliário", href: "/#corretores" },
   ],
+}
+
+function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+  const className = "text-sm text-background/70 hover:text-background transition-colors"
+  if (href.startsWith("/#")) {
+    return (
+      <SectionLink sectionId={href.slice(2)} className={className}>
+        {children}
+      </SectionLink>
+    )
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  )
 }
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background py-16 lg:py-16">
+    <footer className="relative -mt-10 rounded-t-[2.5rem] bg-foreground pb-16 pt-24 text-background">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
@@ -41,15 +57,15 @@ export function Footer() {
             <div className="space-y-3 text-sm text-background/70">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4" />
-                <span>contato@imobiliaria.com.br</span>
+                <span>{site.email}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4" />
-                <span>(11) 90000-0000</span>
+                <span>{site.phone}</span>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4" />
-                <span>São Paulo, SP</span>
+                <span>{site.address}</span>
               </div>
             </div>
           </div>
@@ -60,9 +76,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.imoveis.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
-                    {link.label}
-                  </Link>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
             </ul>
@@ -73,9 +87,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
-                    {link.label}
-                  </Link>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
             </ul>
@@ -86,9 +98,7 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.ajuda.map((link) => (
                 <li key={link.label}>
-                  <Link href={link.href} className="text-sm text-background/70 hover:text-background transition-colors">
-                    {link.label}
-                  </Link>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
             </ul>

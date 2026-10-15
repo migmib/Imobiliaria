@@ -1,10 +1,11 @@
+import { AboutSection } from "@/components/about-section"
+import { BrokersSection } from "@/components/brokers-section"
+import { ContactSection } from "@/components/contact-section"
+import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { ProductSection } from "@/components/product-section"
-import { ScienceSection } from "@/components/science-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
-import { MissionSection } from "@/components/mission-section"
-import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -12,9 +13,10 @@ export default function Home() {
       <Header />
       <HeroSection />
       <ProductSection />
-      <ScienceSection />
+      <AboutSection />
+      <BrokersSection />
       <TestimonialsSection />
-      <MissionSection />
+      <ContactSection />
       <Footer />
     </main>
   )

@@ -22,13 +22,17 @@ export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur =
       const rect = containerRef.current.getBoundingClientRect()
       const windowHeight = window.innerHeight
 
-      // Calculate when element enters viewport (bottom) to when it reaches center
-      const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight * 0.6)))
+      // 0 quando o título entra pela base da tela; 1 quando ele chega na metade da tela.
+      const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight * 0.5)))
+
+      // Cada palavra começa um pouco depois da anterior, mas a ÚLTIMA sempre termina em 1.
+      // (Antes o atraso passava de 1 e a última palavra ficava borrada para sempre.)
+      const fade = 0.4 // "tamanho" da transição de cada palavra
+      const stagger = words.length > 1 ? (1 - fade) / (words.length - 1) : 0
 
       const newProgress = words.map((_, index) => {
-        const wordDelay = index * 0.2 // Stagger delay per word (increased from 0.15)
-        const wordProgress = Math.max(0, Math.min(1, (scrollProgress - wordDelay) / 0.3))
-        return wordProgress
+        const start = index * stagger
+        return Math.max(0, Math.min(1, (scrollProgress - start) / fade))
       })
 
       setWordProgress(newProgress)
@@ -36,7 +40,11 @@ export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur =
 
     handleScroll() // Initial check
     window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
+    window.addEventListener("resize", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("resize", handleScroll)
+    }
   }, [words.length])
 
   return (
@@ -50,7 +58,7 @@ export function ScrollBlurText({ text, className = "", startBlur = 80, endBlur =
           <span
             key={index}
             style={{
-              filter: `blur(${blur}px)`,
+              filter: blur > 0.05 ? `blur(${blur}px)` : "none",
               opacity,
               display: "inline-block",
               transition: "filter 0.3s ease-out, opacity 0.3s ease-out",

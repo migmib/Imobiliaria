@@ -11,7 +11,7 @@
   --card-foreground: oklch(0.18 0.02 150);
   --popover: oklch(0.99 0.003 90);
   --popover-foreground: oklch(0.18 0.02 150);
-  --primary: oklch(38.118% 0.11438 35.568); /* Deep olive green */
+  --primary: oklch(48.857% 0.17023 34.31); /* Deep olive green */
   --primary-foreground: oklch(0.97 0.005 90);
   --secondary: oklch(0.55 0.06 140); /* Moss/sage green */
   --secondary-foreground: oklch(0.97 0.005 90);
@@ -180,4 +180,41 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* ---------- Cards dos corretores ----------
+   Só em dispositivos com mouse (hover): o card "infla" e o botão "Ver mais" aparece.
+   No celular o botão fica sempre visível. */
+.broker-card {
+  transition:
+    transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease,
+    background-color 0.4s ease;
+}
+
+@media (hover: hover) {
+  .broker-card .broker-more {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+    pointer-events: none;
+    transition:
+      opacity 0.3s ease 0.05s,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s,
+      background-color 0.2s ease;
+  }
+
+  .broker-card:hover,
+  .broker-card:has(:focus-visible) {
+    transform: scale(1.04);
+    z-index: 10;
+    background-color: color-mix(in oklab, var(--primary-foreground) 10%, transparent);
+    box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.45);
+  }
+
+  .broker-card:hover .broker-more,
+  .broker-card:has(:focus-visible) .broker-more {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
 }
