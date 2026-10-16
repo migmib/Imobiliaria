@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
-import Image from "next/image"
+import { FittedImage } from "@/components/fitted-image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -53,7 +53,7 @@ export function PhotoCarousel({
         {slides.map((slide, i) => (
           <div key={i} className="relative aspect-[4/5] min-w-full snap-center bg-muted">
             {slide.src ? (
-              <Image src={slide.src} alt={slide.alt} fill sizes={sizes} className="object-cover" />
+              <FittedImage src={slide.src} alt={slide.alt} sizes={sizes} className="absolute inset-0" />
             ) : (
               <div className="flex h-full items-center justify-center" aria-hidden>
                 <span className="font-serif text-9xl font-light text-primary/25">{slide.initial}</span>

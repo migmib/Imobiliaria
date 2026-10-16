@@ -2,7 +2,7 @@
 //
 // FOTOS: salve as imagens em public/images/corretores/ e liste os caminhos em "photos".
 // A primeira foto vira a capa do card; todas aparecem no carrossel do "Ver mais".
- Exemplo: photos: []
+// Exemplo: photos: ["/images/corretores/williams/foto-1.jpg"]
 export type BrokerStep = { title: string; text: string }
 
 export type Broker = {
@@ -41,7 +41,7 @@ export const brokers: Broker[] = [
       "Orientação sobre o valor de mercado do imóvel",
     ],
     whatsappMessage: "Olá, Williams! Vi o site da Imobiliaria e gostaria de conversar sobre um imóvel.",
-    photos: ["/images/corretores/williams-1.jpeg"],
+    photos: ["/images/corretores/Willians/williams-1.jpeg", "/images/corretores/Willians/ClientesWIL_1.jpeg",  "/images/corretores/Willians/ClientesWIL_2.jpeg", "/images/corretores/Willians/ClientesWIL3.jpeg"],
   },
   {
     id: "adilson",

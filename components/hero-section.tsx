@@ -1,14 +1,15 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 import { PropertySearchForm } from "@/components/property-search-form"
 import { AnimatedText } from "@/components/animated-text"
+import { HeroBackground } from "@/components/hero-background"
+import { HeroBrandCard } from "@/components/hero-brand-card"
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
-  const imageContainerRef = useRef<HTMLDivElement>(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
 
+  // Faz os textos "subirem" ao aparecer na tela.git
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,58 +28,29 @@ export function HeroSection() {
     return () => observer.disconnect()
   }, [])
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return
-
-      const scrollY = window.scrollY
-      const sectionHeight = sectionRef.current.offsetHeight
-
-      // Calculate progress (0 to 1) based on scroll within the hero section
-      const progress = Math.min(scrollY / (sectionHeight * 0.5), 1)
-      setScrollProgress(progress)
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    handleScroll() // Initial check
-
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
-  const scale = 1 - scrollProgress * 0.05 // Reduces from 1 to 0.95
-  const borderRadius = scrollProgress * 24 // Increases from 0 to 24px
+  // OBS: antes o fundo encolhia e arredondava ao rolar a página (um scroll listener que
+  // atualizava o React a cada pixel e redimensionava o fundo animado). Isso pesava o site,
+  // então foi removido: o fundo agora fica parado enquanto a página rola.
 
   return (
     <section ref={sectionRef} className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Full-width background image with zoom effect */}
-      <div
-        ref={imageContainerRef}
-        className="absolute inset-0 w-full h-full overflow-hidden transition-transform duration-100"
-        style={{
-          transform: `scale(${scale})`,
-          borderRadius: `${borderRadius}px`,
-        }}
-      >
-        <img
-          src="/images/hero-biometic.png"
-          alt="Casa moderna com jardim"
-          className="w-full h-full object-cover animate-zoom-in"
-        />
-        {/* Subtle dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/60 via-foreground/40 to-transparent" />
+      {/* Fundo animado em tela cheia (cores e legibilidade em components/hero-background.tsx) */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <HeroBackground />
       </div>
 
-      {/* Content overlay - text on the left */}
+      {/* Conteúdo: texto à esquerda, cartão da marca à direita (só em telas grandes) */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32 w-full">
+        <HeroBrandCard />
+
         <div className="max-w-2xl">
-          {/* Text content */}
           <p className="reveal opacity-0 text-sm uppercase tracking-[0.2em] text-background font-medium mb-6">
             Compra e aluguel de imóveis
           </p>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium leading-[1.1] text-background text-balance mb-8">
             <AnimatedText text="Encontre o lugar" delay={0.2} />
             <br />
-            <span className="text-accent">
+            <span className="text-background/75">
               <AnimatedText text="perfeito para você" delay={0.6} />
             </span>
           </h1>
@@ -90,8 +62,6 @@ export function HeroSection() {
         <div className="reveal opacity-0 animation-delay-600 mt-12 max-w-5xl">
           <PropertySearchForm variant="hero" />
         </div>
-
-        {/* Floating card - bottom left */}
       </div>
     </section>
   )

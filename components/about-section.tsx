@@ -1,5 +1,4 @@
-import { PhotoCarousel } from "@/components/photo-carousel"
-import { brokerSlides } from "@/lib/brokers"
+import { OfficeGallery } from "@/components/office-gallery"
 
 const values = [
   { title: "Transparência", text: "Você conhece cada etapa, custo e prazo antes de decidir." },
@@ -12,8 +11,8 @@ export function AboutSection() {
     <section id="quem-somos" className="relative -mt-10 scroll-mt-16 rounded-t-[2.5rem] bg-background py-24 lg:py-32">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[5fr_6fr] lg:items-center lg:gap-20 lg:px-8">
         <div className="relative">
-          {/* Carrossel com as fotos do Williams e do Adilson (vem de lib/brokers.ts) */}
-          <PhotoCarousel slides={brokerSlides()} dots="left" sizes="(min-width: 1024px) 40vw, 100vw" className="[&>div:first-child]:rounded-[2rem]" />
+          {/* Fotos do escritório (editar em lib/office.ts) */}
+          <OfficeGallery />
           <p className="mt-4 max-w-[17rem] rounded-2xl bg-primary p-5 font-serif text-lg leading-snug text-primary-foreground shadow-xl lg:absolute lg:-bottom-6 lg:-right-6 lg:mt-0">
             Do primeiro contato à entrega das chaves, com você.
           </p>

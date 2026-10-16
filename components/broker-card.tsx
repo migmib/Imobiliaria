@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import { Check, MessageCircle, X } from "lucide-react"
+import { FittedImage } from "@/components/fitted-image"
 import { PhotoCarousel, type CarouselSlide } from "@/components/photo-carousel"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog"
@@ -30,15 +30,14 @@ export function BrokerCard({ broker, className }: { broker: Broker; className?: 
           type="button"
           onClick={() => setOpen(true)}
           aria-label={`Ver mais sobre ${broker.name}`}
-          className="relative block aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-3xl bg-primary-foreground/10 outline-none focus-visible:ring-[3px] focus-visible:ring-primary-foreground/60"
+          className="relative block aspect-square w-full cursor-pointer overflow-hidden rounded-3xl bg-primary-foreground/10 outline-none focus-visible:ring-[3px] focus-visible:ring-primary-foreground/60"
         >
           {cover ? (
-            <Image
+            <FittedImage
               src={cover}
               alt={`Foto de ${broker.name}`}
-              fill
               sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
             <span className="flex h-full items-center justify-center transition-transform duration-700 group-hover:scale-105" aria-hidden>
@@ -48,7 +47,7 @@ export function BrokerCard({ broker, className }: { broker: Broker; className?: 
         </button>
 
         <h3 className="mt-8 font-serif text-4xl font-light">{broker.name}</h3>
-        <p className="mt-1 text-accent">{role}</p>
+        <p className="mt-1 text-primary-foreground/70">{role}</p>
         <p className="mt-5 max-w-md flex-1 leading-relaxed text-primary-foreground/80">{broker.summary}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">
