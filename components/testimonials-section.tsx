@@ -6,7 +6,7 @@ import { Pause, Play } from "lucide-react"
 // EXEMPLOS: troque por depoimentos reais de clientes antes de publicar o site.
 const testimonials = [
   { quote: "Encontrei meu apartamento em duas semanas. O atendimento foi atencioso do começo ao fim.", author: "Mariana L.", role: "Comprou um apartamento" },
-  { quote: "Processo transparente e sem burocracia. Recomendo a Imobiliaria para quem quer segurança no aluguel.", author: "Thiago D.", role: "Alugou uma casa" },
+  { quote: "Processo transparente e sem burocracia. Recomendo a Willians & Adilson Imóveis para quem quer segurança no aluguel.", author: "Thiago D.", role: "Alugou uma casa" },
   { quote: "Como investidora, valorizo a análise de mercado. Todas as indicações foram certeiras.", author: "Sofia M.", role: "Investidora" },
   { quote: "Vendi minha casa rápido e pelo preço que eu esperava. Excelente equipe.", author: "Lucas P.", role: "Vendeu uma casa" },
   { quote: "Fui muito bem orientada na compra do meu primeiro imóvel. Me senti segura em todas as etapas.", author: "Clara B.", role: "Primeiro imóvel" },

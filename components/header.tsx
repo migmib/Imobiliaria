@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { SectionLink } from "@/components/section-link"
+import { ShineLogo } from "@/components/shine-logo"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { site, whatsappLink } from "@/lib/site"
@@ -84,16 +85,29 @@ export function Header() {
 
   return (
     <header className={cn("fixed left-0 right-0 top-0 z-50 transition-[padding] duration-300", scrolled ? "p-3" : "p-6")}>
-      <nav className="mx-auto max-w-7xl rounded-3xl border border-border/50 bg-background/80 shadow-lg backdrop-blur-md">
+      <nav className="mx-auto max-w-7xl rounded-3xl border border-gold/20 bg-primary/90 text-primary-foreground shadow-lg shadow-black/20 backdrop-blur-md">
         <div className={cn("flex items-center justify-between px-6 transition-[height] duration-300 lg:px-8", scrolled ? "h-16" : "h-20")}>
-          <Link href="/" className="font-serif text-2xl font-normal text-foreground">
-            {site.name}
+          <Link href="/" aria-label={site.name} className="flex items-center gap-3">
+            <ShineLogo
+              src="/images/logo/logo-mark.png"
+              width={200}
+              height={148}
+              alt=""
+              priority
+              className={cn("transition-[height] duration-300", scrolled ? "h-8" : "h-10")}
+            />
+            <span className="flex flex-col leading-none">
+              <span className="text-[0.7rem] font-medium uppercase tracking-[0.14em] sm:text-[0.82rem] sm:tracking-[0.2em]">
+                Willians <span className="text-gold">&</span> Adilson
+              </span>
+              <span className="mt-1.5 text-[0.58rem] uppercase tracking-[0.5em] text-gold sm:text-[0.62rem]">Imóveis</span>
+            </span>
           </Link>
 
           <div ref={listRef} className="relative hidden items-center lg:flex">
             <span
               aria-hidden
-              className="absolute top-1/2 h-9 -translate-y-1/2 rounded-full bg-primary/10 transition-[left,width,opacity] duration-500 ease-out"
+              className="absolute top-1/2 h-9 -translate-y-1/2 rounded-full bg-gold/15 transition-[left,width,opacity] duration-500 ease-out"
               style={{ left: indicator?.left ?? 0, width: indicator?.width ?? 0, opacity: indicator ? 1 : 0 }}
             />
             {links.map((link) => (
@@ -104,7 +118,7 @@ export function Header() {
                 aria-current={active === link.id ? "true" : undefined}
                 className={cn(
                   "relative px-4 py-2 text-sm transition-colors",
-                  active === link.id ? "font-medium text-primary" : "text-muted-foreground hover:text-foreground",
+                  active === link.id ? "font-medium text-gold" : "text-primary-foreground/70 hover:text-primary-foreground",
                 )}
               >
                 {link.label}
@@ -113,7 +127,7 @@ export function Header() {
           </div>
 
           <div className="hidden lg:block">
-            <Button asChild className="rounded-full bg-primary px-6 text-primary-foreground hover:bg-primary/90">
+            <Button asChild className="rounded-full bg-gold px-6 font-medium text-primary hover:bg-gold/90">
               <a href={whatsappLink("Olá! Gostaria de falar com um corretor.")} target="_blank" rel="noopener noreferrer">
                 Fale conosco
               </a>
@@ -122,7 +136,7 @@ export function Header() {
 
           <button
             type="button"
-            className="p-2 lg:hidden"
+            className="p-2 text-primary-foreground lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isOpen}
@@ -132,19 +146,19 @@ export function Header() {
         </div>
 
         {isOpen && (
-          <div className="border-t border-border/50 px-6 py-6 lg:hidden">
+          <div className="border-t border-white/10 px-6 py-6 lg:hidden">
             <div className="flex flex-col gap-4">
               {links.map((link) => (
                 <SectionLink
                   key={link.id}
                   sectionId={link.id}
                   onClick={() => setIsOpen(false)}
-                  className={cn("text-lg transition-colors", active === link.id ? "font-medium text-primary" : "text-muted-foreground hover:text-foreground")}
+                  className={cn("text-lg transition-colors", active === link.id ? "font-medium text-gold" : "text-primary-foreground/70 hover:text-primary-foreground")}
                 >
                   {link.label}
                 </SectionLink>
               ))}
-              <Button asChild className="mt-4 w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button asChild className="mt-4 w-full rounded-full bg-gold font-medium text-primary hover:bg-gold/90">
                 <a href={whatsappLink("Olá! Gostaria de falar com um corretor.")} target="_blank" rel="noopener noreferrer">
                   Fale conosco
                 </a>

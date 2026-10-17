@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { filterProperties, parseFilters } from "@/lib/properties"
 
 export const metadata: Metadata = {
-  title: "Imóveis à venda e para alugar | Imobiliaria",
+  title: "Imóveis à venda e para alugar | Willians & Adilson Imóveis",
   description: "Veja casas, apartamentos, terrenos e salas comerciais para comprar ou alugar.",
 }
 

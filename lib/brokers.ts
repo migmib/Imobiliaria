@@ -21,11 +21,11 @@ export type Broker = {
 export const brokers: Broker[] = [
   {
     id: "williams",
-    name: "Williams",
+    name: "Willians",
     role: "Corretor de imóveis",
     summary: "Acompanha você na compra, na venda e no aluguel, da primeira visita até a assinatura do contrato.",
     about: [
-      "Williams atua na compra, na venda e no aluguel de imóveis. Ele acompanha cada negociação de perto, para que a sua decisão seja tranquila e segura.",
+      "Willians atua na compra, na venda e no aluguel de imóveis. Ele acompanha cada negociação de perto, para que a sua decisão seja tranquila e segura.",
       "O atendimento é direto: você conversa com ele desde o primeiro contato até a assinatura do contrato.",
     ],
     steps: [
@@ -40,7 +40,7 @@ export const brokers: Broker[] = [
       "Visitas e negociação com o proprietário",
       "Orientação sobre o valor de mercado do imóvel",
     ],
-    whatsappMessage: "Olá, Williams! Vi o site da Imobiliaria e gostaria de conversar sobre um imóvel.",
+    whatsappMessage: "Olá, Willians! Vi o seu site e gostaria de conversar sobre um imóvel.",
     photos: ["/images/corretores/Willians/williams-1.jpeg", "/images/corretores/Willians/ClientesWIL_1.jpeg",  "/images/corretores/Willians/ClientesWIL_2.jpeg", "/images/corretores/Willians/ClientesWIL3.jpeg"],
   },
   {
@@ -64,7 +64,7 @@ export const brokers: Broker[] = [
       "Organização da documentação",
       "Orientação sobre FGTS e subsídios",
     ],
-    whatsappMessage: "Olá, Adilson! Vi o site da Imobiliaria e gostaria de avaliar meu crédito para financiar um imóvel.",
+    whatsappMessage: "Olá, Adilson! Vi o seu site e gostaria de avaliar meu crédito para financiar um imóvel.",
     photos: [],
   },
 ]

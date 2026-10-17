@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Mail, MapPin, Phone } from "lucide-react"
 import { SectionLink } from "@/components/section-link"
+import { ShineLogo } from "@/components/shine-logo"
 import { site } from "@/lib/site"
 
 const footerLinks = {
@@ -45,11 +46,8 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-16">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 rounded-full bg-background flex items-center justify-center">
-                <span className="text-foreground font-serif text-sm font-medium">I</span>
-              </div>
-              <span className="font-serif text-xl font-medium text-background">Imobiliaria</span>
+            <Link href="/" aria-label={site.name} className="mb-6 inline-block">
+              <ShineLogo src="/images/logo/logo-full.png" width={366} height={276} alt={site.name} className="h-36" />
             </Link>
             <p className="text-background/70 leading-relaxed mb-6 max-w-sm">
               Casas, apartamentos e terrenos para comprar ou alugar, com atendimento de confiança.
@@ -107,7 +105,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-background/50">© 2026 Imobiliaria. Todos os direitos reservados.</p>
+          <p className="text-sm text-background/50">© 2026 {site.name}. Todos os direitos reservados.</p>
           <div className="flex gap-6 text-sm text-background/50">
             <Link href="#" className="hover:text-background transition-colors">
               Aviso legal

@@ -1,55 +1,52 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import { ShineLogo } from "@/components/shine-logo"
 import { site } from "@/lib/site"
 
-// ============================================================================
-// LOGO: quando tiver o arquivo da logo, salve em public/images/ (de preferência PNG com
-// fundo transparente, em branco ou claro) e coloque o caminho aqui. Exemplo:
-//   const LOGO_SRC = "/images/logo.png"
-// Enquanto estiver vazio, o cartão mostra um ícone de casa + o nome do site.
-// ============================================================================
-const LOGO_SRC = ""
-
-// Cartão "de vidro" no lado direito do topo do site (aparece a partir de telas grandes).
-// O efeito de vidro é feito só com transparência, brilho e borda, SEM backdrop-blur:
-// desfocar o fundo animado a cada quadro deixaria o site pesado.
+// Símbolo do logo (W com a casa), sem caixa, no lado direito do hero (no celular fica embaixo do texto).
+// - Fica DENTRO do layout do hero (não flutua por cima). Tamanho e brilho estão em components/hero.css.
+// - O símbolo se inclina seguindo o cursor. Ele atualiza variáveis CSS direto no elemento,
+//   sem passar pelo React, então não pesa.
+// - O logo ganha um brilho dourado quando a página abre e quando você passa o mouse nele.
 export function HeroBrandCard() {
+  const tiltRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = tiltRef.current
+    if (!el) return
+    let frame = 0
+
+    const onMove = (e: PointerEvent) => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const x = e.clientX / window.innerWidth - 0.5
+        const y = e.clientY / window.innerHeight - 0.5
+        el.style.setProperty("--tilt-x", `${(-y * 12).toFixed(2)}deg`)
+        el.style.setProperty("--tilt-y", `${(x * 14).toFixed(2)}deg`)
+      })
+    }
+
+    window.addEventListener("pointermove", onMove, { passive: true })
+    return () => {
+      window.removeEventListener("pointermove", onMove)
+      cancelAnimationFrame(frame)
+    }
+  }, [])
+
   return (
-    <aside
-      aria-label={site.name}
-      className="reveal opacity-0 animation-delay-600 pointer-events-none absolute right-8 top-32 hidden w-72 xl:block"
-    >
-      <div className="relative overflow-hidden rounded-[2rem] border border-white/25 bg-white/10 p-8 text-background shadow-[0_30px_60px_-20px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.35)]">
-        {/* reflexo de vidro */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/25 via-white/5 to-transparent" aria-hidden />
-
-        <div className="relative">
-          {LOGO_SRC ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={LOGO_SRC} alt={site.name} className="h-16 w-auto max-w-full object-contain object-left" />
-          ) : (
-            <>
-              <span className="flex size-14 items-center justify-center rounded-2xl border border-white/30 bg-white/15" aria-hidden>
-                <svg viewBox="0 0 32 32" className="size-8" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 15 16 5l12 10" />
-                  <path d="M7 13.5V27h18V13.5" />
-                  <path d="M13 27v-7a3 3 0 0 1 6 0v7" />
-                </svg>
-              </span>
-              <p className="mt-6 font-serif text-3xl font-light">{site.name}</p>
-            </>
-          )}
-
-          <p className="mt-3 text-sm leading-relaxed text-background/80">Do primeiro contato à entrega das chaves, com você.</p>
-
-          <div className="my-6 h-px bg-white/25" aria-hidden />
-
-          <ul className="flex flex-wrap gap-2 text-xs">
-            {["Compra", "Venda", "Aluguel"].map((item) => (
-              <li key={item} className="rounded-full border border-white/25 bg-white/10 px-3 py-1">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <aside aria-label={site.name} className="hero-logo-card hero-enter" style={{ animationDelay: "0.5s" }}>
+      <div ref={tiltRef} className="hero-brand-tilt hero-logo-mark">
+        <ShineLogo
+          src="/images/logo/logo-mark-hd.png"
+          width={786}
+          height={577}
+          alt={site.name}
+          intro
+          priority
+          className="block w-full"
+          imgClassName="block h-auto w-full"
+        />
       </div>
     </aside>
   )

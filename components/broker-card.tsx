@@ -47,7 +47,7 @@ export function BrokerCard({ broker, className }: { broker: Broker; className?: 
         </button>
 
         <h3 className="mt-8 font-serif text-4xl font-light">{broker.name}</h3>
-        <p className="mt-1 text-primary-foreground/70">{role}</p>
+        <p className="mt-1 text-gold">{role}</p>
         <p className="mt-5 max-w-md flex-1 leading-relaxed text-primary-foreground/80">{broker.summary}</p>
 
         <div className="mt-8 flex flex-wrap gap-3">

@@ -1,0 +1,67 @@
+/* Layout e animação de entrada do hero.
+   Está em CSS puro (e não em classes do Tailwind) de propósito: assim o hero aparece
+   corretamente mesmo se o Tailwind ainda não tiver gerado alguma classe nova.
+   Tudo aqui é visível por padrão: a animação só faz a entrada suave. */
+
+/* Texto à esquerda, logo à direita (no celular, um embaixo do outro) */
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+/* Entrada suave: sobe e aparece. O atraso vem de style={{ animationDelay }} em cada elemento. */
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 0.8s ease-out both;
+}
+
+/* Símbolo do logo (sem caixa), no lado direito. Quanto maior a tela, maior o símbolo. */
+.hero-logo-card {
+  width: min(100%, 20rem);
+  margin-inline: auto;
+}
+
+@media (min-width: 1024px) {
+  .hero-logo-card {
+    width: 24rem;
+    margin-inline: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-logo-card {
+    width: 30rem;
+  }
+}
+
+/* Brilho dourado suave atrás do símbolo, para ele se destacar do fundo azul */
+.hero-logo-mark img {
+  filter: drop-shadow(0 0 55px color-mix(in oklab, var(--gold) 32%, transparent))
+    drop-shadow(0 28px 40px rgb(0 0 0 / 0.4));
+}
+
+/* O hero ocupa a tela inteira. A seção "Imóveis" sobe 2.5rem por cima do hero (efeito de folhas
+   empilhadas); por isso o hero é 2.5rem mais alto, e essa parte fica escondida embaixo dela.
+   Sem isso, uma faixa branca da próxima seção aparecia no pé da primeira tela. */
+.hero-section {
+  min-height: calc(100vh + 2.5rem);
+  min-height: calc(100svh + 2.5rem);
+  padding-bottom: 2.5rem;
+}

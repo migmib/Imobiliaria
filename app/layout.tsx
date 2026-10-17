@@ -15,25 +15,11 @@ const fraunces = Fraunces({
 })
 
 export const metadata: Metadata = {
-  title: "Imobiliaria — Encontre o imóvel dos seus sonhos",
+  title: "Willians & Adilson Imóveis — Seu sonho, nosso objetivo",
   description:
-    "Casas, apartamentos e terrenos para comprar ou alugar. Encontre o imóvel ideal com a Imobiliaria.",
-  generator: "v0.app",
+    "Casas, apartamentos e terrenos para comprar ou alugar. Encontre o imóvel ideal com a Willians & Adilson Imóveis.",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
+    icon: "/icon.png",
     apple: "/apple-icon.png",
   },
 }

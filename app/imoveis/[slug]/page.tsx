@@ -15,9 +15,9 @@ type Props = { params: Promise<{ slug: string }> }
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const property = getPropertyBySlug(slug)
-  if (!property) return { title: "Imóvel não encontrado | Imobiliaria" }
+  if (!property) return { title: "Imóvel não encontrado | Willians & Adilson Imóveis" }
   return {
-    title: `${property.title} em ${property.neighborhood} | Imobiliaria`,
+    title: `${property.title} em ${property.neighborhood} | Willians & Adilson Imóveis`,
     description: property.description,
   }
 }

@@ -6,8 +6,8 @@ import { GrainGradient } from "@paper-design/shaders-react"
 // ============================================================================
 // CORES DO FUNDO: quando for trocar a paleta do site, mude só estas duas linhas.
 // ============================================================================
-const COLOR_BACK = "hsl(8, 45%, 8%)" // cor de base (escura)
-const COLORS = ["hsl(10, 78%, 42%)", "hsl(22, 88%, 52%)", "hsl(350, 70%, 32%)"] // cores que se misturam
+const COLOR_BACK = "hsl(224, 80%, 7%)" // cor de base (azul-marinho bem escuro)
+const COLORS = ["hsl(222, 88%, 26%)", "hsl(217, 92%, 44%)", "hsl(228, 85%, 20%)"] // só tons de azul (do escuro ao mais vivo)
 
 // Fundo animado do hero. Ele já inclui a camada escura que garante a leitura do texto:
 // não importa quais cores você escolher acima, o título e a busca continuam legíveis.
@@ -42,9 +42,9 @@ export function HeroBackground() {
       />
 
       {/* Camadas de legibilidade: escurecem o fundo, mais forte onde fica o texto (à esquerda) */}
-      <div className="absolute inset-0 bg-black/35 lg:bg-black/25" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-black/20 lg:bg-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/35 via-black/12 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
     </div>
   )
 }

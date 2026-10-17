@@ -15,7 +15,7 @@ export type OfficePhoto = {
 }
 
 export const officePhotos: OfficePhoto[] = [
-   { src: "/images/escritorio/FOTO1.jpeg", alt: "Recepção da Imobiliaria", caption: "Recepção" },
+   { src: "/images/escritorio/FOTO1.jpeg", alt: "Recepção do escritório", caption: "Recepção" },
    { src: "/images/escritorio/FOTO2.jpeg", alt: "Sala de atendimento aos clientes", caption: "Sala de atendimento" },
    { src: "/images/escritorio/FOTO3.jpeg", alt: "Sala de reuniões", caption: "Sala de reuniões" },
 ]

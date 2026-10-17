@@ -70,7 +70,7 @@ export function ProductSection() {
     <section ref={sectionRef} id="imoveis" className="relative -mt-10 scroll-mt-16 rounded-t-[2.5rem] bg-card py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mb-14 text-center lg:mb-16">
-          <p className="reveal mb-4 text-sm font-medium uppercase tracking-[0.2em] text-secondary opacity-0">Imóveis em destaque</p>
+          <p className="reveal mb-4 text-sm font-medium uppercase tracking-[0.2em] text-gold-deep opacity-0">Imóveis em destaque</p>
           <ScrollBlurText
             text="Encontre o seu próximo lar"
             className="mb-6 font-serif text-3xl font-light text-foreground text-balance md:text-7xl"

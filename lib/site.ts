@@ -1,6 +1,6 @@
 // Dados da empresa em UM só lugar. Troque aqui e o site inteiro atualiza.
 export const site = {
-  name: "Imobiliaria",
+  name: "Willians & Adilson Imóveis",
   email: "contato@imobiliaria.com.br",
   phone: "(11) 90000-0000",
   whatsapp: "5511900000000", // só números, com 55 + DDD

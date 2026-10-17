@@ -1,0 +1,45 @@
+/* Efeitos do logo (menu, hero e rodapé).
+
+   BRILHO: um reflexo dourado atravessa o logo. Ele usa o próprio PNG do logo como "máscara",
+   então o brilho só aparece sobre as letras e o símbolo, nunca sobre o fundo.
+   - ao passar o mouse: .logo-shine:hover
+   - uma vez, quando a página abre: .logo-shine--intro */
+.logo-shine {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-mask: var(--logo-mask) center / contain no-repeat;
+  mask: var(--logo-mask) center / contain no-repeat;
+  background: linear-gradient(105deg, transparent 38%, rgb(255 244 214 / 0.95) 50%, transparent 62%) 100% 0 / 300% 100% no-repeat;
+}
+
+@keyframes logo-glint {
+  from { opacity: 1; background-position: 100% 0; }
+  to { opacity: 1; background-position: 0% 0; }
+}
+
+@keyframes logo-glint-intro {
+  from { opacity: 1; background-position: 100% 0; }
+  to { opacity: 1; background-position: 0% 0; }
+}
+
+.logo-shine:hover::after {
+  animation: logo-glint 0.9s ease-out;
+}
+
+.logo-shine--intro::after {
+  animation: logo-glint-intro 1.3s ease-out 1.6s 1;
+}
+
+/* O cartão se inclina de leve seguindo o cursor (valores vêm de hero-brand-card.tsx) */
+.hero-brand-tilt {
+  transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.35s ease-out;
+}
