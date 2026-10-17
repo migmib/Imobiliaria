@@ -63,8 +63,18 @@ export default async function PropertyPage({ params }: Props) {
               </div>
               <h1 className="mt-2 font-serif text-3xl font-light text-foreground md:text-5xl">{property.title}</h1>
               <p className="mt-3 flex items-center gap-2 text-muted-foreground">
-                <MapPin className="size-4" />
-                {property.neighborhood}, {property.city}
+                <MapPin className="size-4 shrink-0" />
+                <span>
+                  {property.address && (
+                    <>
+                      <a href="#localizacao" className="underline underline-offset-4 transition-colors hover:text-foreground">
+                        {property.address}
+                      </a>
+                      {" · "}
+                    </>
+                  )}
+                  {property.neighborhood}, {property.city}
+                </span>
               </p>
             </div>
 
