@@ -2,10 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Bath, BedDouble, Car, Check, MapPin, MessageCircle, Phone, Ruler } from "lucide-react"
+import { CopyCode } from "@/components/copy-code"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { PropertyCard } from "@/components/property-card"
 import { PropertyGallery } from "@/components/property-gallery"
+import { PropertyLocation } from "@/components/property-location"
 import { Button } from "@/components/ui/button"
 import { formatPrice, getPropertyBySlug, getRelatedProperties, purposeLabels, typeLabels } from "@/lib/properties"
 import { site, whatsappLink } from "@/lib/site"
@@ -36,7 +38,7 @@ export default async function PropertyPage({ params }: Props) {
     { icon: Ruler, label: "Área", value: property.area, unit: " m²" },
   ].filter((s) => s.value > 0)
 
-  const message = `Olá! Tenho interesse no imóvel "${property.title}" (${property.neighborhood}). Ainda está disponível?`
+  const message = `Olá! Tenho interesse no imóvel código ${property.code} - "${property.title}" (${property.neighborhood}). Ainda está disponível?`
 
   return (
     <main className="min-h-screen bg-background">
@@ -53,9 +55,12 @@ export default async function PropertyPage({ params }: Props) {
             <PropertyGallery images={property.images} title={property.title} />
 
             <div className="mt-10">
-              <p className="text-sm text-muted-foreground">
-                {typeLabels[property.type]} para {property.purpose === "VENDA" ? "comprar" : "alugar"}
-              </p>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-sm text-muted-foreground">
+                  {typeLabels[property.type]} para {property.purpose === "VENDA" ? "comprar" : "alugar"}
+                </p>
+                <CopyCode code={property.code} />
+              </div>
               <h1 className="mt-2 font-serif text-3xl font-light text-foreground md:text-5xl">{property.title}</h1>
               <p className="mt-3 flex items-center gap-2 text-muted-foreground">
                 <MapPin className="size-4" />
@@ -92,6 +97,15 @@ export default async function PropertyPage({ params }: Props) {
                 ))}
               </ul>
             </section>
+
+            <PropertyLocation
+              title={property.title}
+              neighborhood={property.neighborhood}
+              city={property.city}
+              address={property.address}
+              lat={property.lat}
+              lng={property.lng}
+            />
           </div>
 
           <aside>
