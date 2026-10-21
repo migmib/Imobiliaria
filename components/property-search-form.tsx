@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { withBase } from "@/lib/base-path"
 import { getCities, propertyTypes, type Filters } from "@/lib/properties"
 
 type Props = {
@@ -36,7 +37,7 @@ export function PropertySearchForm({ variant = "page", defaults = {} }: Props) {
 
   return (
     <form
-      action="/imoveis"
+      action={withBase("/imoveis/")}
       method="get"
       className={cn(hero ? "rounded-3xl bg-background/95 p-4 shadow-2xl backdrop-blur-md md:p-5" : "flex flex-col gap-5")}
     >

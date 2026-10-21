@@ -1,6 +1,7 @@
 import Image from "next/image"
 import type { CSSProperties } from "react"
 import { cn } from "@/lib/utils"
+import { withBase } from "@/lib/base-path"
 import "./logo.css"
 
 // Logo com brilho dourado ao passar o mouse (veja components/logo.css).
@@ -24,9 +25,10 @@ export function ShineLogo({
   intro?: boolean
   priority?: boolean
 }) {
+  const url = withBase(src)
   return (
-    <span className={cn("logo-shine", intro && "logo-shine--intro", className)} style={{ "--logo-mask": `url(${src})` } as CSSProperties}>
-      <Image src={src} width={width} height={height} alt={alt} priority={priority} className={imgClassName} />
+    <span className={cn("logo-shine", intro && "logo-shine--intro", className)} style={{ "--logo-mask": `url(${url})` } as CSSProperties}>
+      <Image src={url} width={width} height={height} alt={alt} priority={priority} className={imgClassName} />
     </span>
   )
 }
