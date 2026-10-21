@@ -9,10 +9,18 @@ import { PropertyCard } from "@/components/property-card"
 import { PropertyGallery } from "@/components/property-gallery"
 import { PropertyLocation } from "@/components/property-location"
 import { Button } from "@/components/ui/button"
-import { formatPrice, getPropertyBySlug, getRelatedProperties, purposeLabels, typeLabels } from "@/lib/properties"
+import { formatPrice, getAllPropertySlugs, getPropertyBySlug, getRelatedProperties, purposeLabels, typeLabels } from "@/lib/properties"
 import { site, whatsappLink } from "@/lib/site"
 
 type Props = { params: Promise<{ slug: string }> }
+
+// Necessário no GitHub Pages (site estático): diz ao Next quais páginas /imoveis/[slug] gerar.
+export function generateStaticParams() {
+  return getAllPropertySlugs().map((slug) => ({ slug }))
+}
+
+// Em site estático, slugs que não existem na lista acima viram 404.
+export const dynamicParams = false
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params

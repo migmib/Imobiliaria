@@ -1,3 +1,5 @@
+import { withBase } from "@/lib/base-path"
+
 // Dados de EXEMPLO (códigos, endereços e coordenadas também são de exemplo). Na Fase 2 estas funções passam a buscar no banco (Prisma),
 // mas o resto do site continua igual, porque só usa estas funções.
 
@@ -71,7 +73,7 @@ const photos = [
   "/images/hero-biometic.png",
   "/images/mission-background.png",
 ]
-const gallery = (start: number) => Array.from({ length: 5 }, (_, i) => photos[(start + i) % photos.length])
+const gallery = (start: number) => Array.from({ length: 5 }, (_, i) => withBase(photos[(start + i) % photos.length]))
 
 const properties: Property[] = [
   {
@@ -153,6 +155,11 @@ export function getCities() {
 
 export function getFeaturedProperties() {
   return properties.filter((p) => p.featured)
+}
+
+// Usada pelo GitHub Pages para gerar uma página para cada imóvel na hora do build.
+export function getAllPropertySlugs() {
+  return properties.map((p) => p.slug)
 }
 
 export function getPropertyBySlug(slug: string) {

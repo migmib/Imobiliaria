@@ -1,3 +1,5 @@
+import { withBase } from "@/lib/base-path"
+
 // Dados dos corretores. Edite aqui: textos, fotos e (se quiser) CRECI.
 //
 // FOTOS: salve as imagens em public/images/corretores/ e liste os caminhos em "photos".
@@ -41,7 +43,7 @@ export const brokers: Broker[] = [
       "Orientação sobre o valor de mercado do imóvel",
     ],
     whatsappMessage: "Olá, Willians! Vi o seu site e gostaria de conversar sobre um imóvel.",
-    photos: ["/images/corretores/Willians/williams-1.jpeg", "/images/corretores/Willians/ClientesWIL_1.jpeg",  "/images/corretores/Willians/ClientesWIL_2.jpeg", "/images/corretores/Willians/ClientesWIL3.jpeg"],
+    photos: ["/images/corretores/Willians/williams-1.jpeg", "/images/corretores/Willians/ClientesWIL_1.jpeg",  "/images/corretores/Willians/ClientesWIL_2.jpeg", "/images/corretores/Willians/ClientesWIL3.jpeg"].map(withBase),
   },
   {
     id: "adilson",

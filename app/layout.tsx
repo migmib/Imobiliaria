@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { DM_Sans, Fraunces } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { withBase } from "@/lib/base-path"
 import "./globals.css"
 
 const dmSans = DM_Sans({
@@ -19,8 +20,8 @@ export const metadata: Metadata = {
   description:
     "Casas, apartamentos e terrenos para comprar ou alugar. Encontre o imóvel ideal com a Willians & Adilson Imóveis.",
   icons: {
-    icon: "/icon.png",
-    apple: "/apple-icon.png",
+    icon: withBase("/icon.png"),
+    apple: withBase("/apple-icon.png"),
   },
 }
 

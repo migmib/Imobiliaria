@@ -1,3 +1,5 @@
+import { withBase } from "@/lib/base-path"
+
 // Fotos do escritório (seção "Quem somos").
 //
 // COMO ADICIONAR:
@@ -18,4 +20,4 @@ export const officePhotos: OfficePhoto[] = [
    { src: "/images/escritorio/FOTO1.jpeg", alt: "Recepção do escritório", caption: "Recepção" },
    { src: "/images/escritorio/FOTO2.jpeg", alt: "Sala de atendimento aos clientes", caption: "Sala de atendimento" },
    { src: "/images/escritorio/FOTO3.jpeg", alt: "Sala de reuniões", caption: "Sala de reuniões" },
-]
+].map((photo) => ({ ...photo, src: withBase(photo.src) }))
